@@ -1,18 +1,23 @@
 // TODO: write code here
 import Field from "./field/field.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-    const field = new Field(document.querySelector('.field'));
-    let lastIndex = -1;
+document.addEventListener("DOMContentLoaded", () => {
+  const field = new Field(document.querySelector(".field"));
+  console.log(field);
+  let lastIndex = -1;
 
-    const newHoleInterval = setInterval(() => {
-        let index;
+  const newHoleInterval = setInterval(() => {
+    let index;
 
-        do {
-            index = Math.floor(Math.random() * 16);
-        } while (index === lastIndex);
-        
-        lastIndex = index;
-        field.activateHole( index );
-    }, 1000);
+    do {
+      index = Math.floor(Math.random() * 16);
+    } while (index === lastIndex);
+
+    lastIndex = index;
+    field.activateHole(index);
+  }, 1000);
+
+  if (newHoleInterval) {
+    console.log("Интервал запущен");
+  }
 });

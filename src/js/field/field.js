@@ -1,20 +1,27 @@
 export default class Field {
-    constructor( element ) {
-        this.element = element;
-        this.holes = this.element.querySelectorAll('.hole')
-    };
+  constructor(element) {
+    if (!(element instanceof HTMLElement)) {
+      throw new Error("Ожидался DOM элемент");
+    }
+    this.element = element;
+    this.activeHole = null;
+    this.holes = this.element.querySelectorAll(".hole");
+  }
 
-    activateHole( index ) {
-        this.deactivateHole();
+  activateHole(index) {
+    if (!this.holes[index]) {
+      throw new Error("Такого элемента в массиве нет");
+    }
 
-        this.holes[index].classList.add('hole_active');
-    };
+    this.deactivateHole(this.activeHole);
 
-    deactivateHole() {
-        const activeHole = this.element.querySelector('.hole_active');
-        
-        if (activeHole) {
-            activeHole.classList.remove('hole_active');
-        };
-    };
-};
+    this.holes[index].classList.add("hole_active");
+    this.activeHole = this.holes[index];
+  }
+
+  deactivateHole(activeHole) {
+    if (activeHole) {
+      activeHole.classList.remove("hole_active");
+    }
+  }
+}

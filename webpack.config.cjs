@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "",
-    clean: true
+    clean: true,
   },
   module: {
     rules: [
