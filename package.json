@@ -1,7 +1,7 @@
 {
-  "jest":{
+  "jest": {
     "testEnvironment": "jsdom"
-  }, 
+  },
   "type": "module",
   "name": "dom",
   "version": "1.0.0",
@@ -34,7 +34,8 @@
     "prettier": "^3.4.2",
     "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.2.0"
+    "webpack-dev-server": "^5.2.0",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
