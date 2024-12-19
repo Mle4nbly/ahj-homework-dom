@@ -11,7 +11,7 @@
     "serve": "live-server --open=/src/index.html",
     "lint": "eslint .",
     "build:serve": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "wbpack --mode production"
   },
   "author": "",
   "license": "ISC",
