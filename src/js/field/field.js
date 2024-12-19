@@ -1,27 +1,37 @@
 export default class Field {
-  constructor(element) {
-    if (!(element instanceof HTMLElement)) {
-      throw new Error("Ожидался DOM элемент");
-    }
-    this.element = element;
-    this.activeHole = null;
-    this.holes = this.element.querySelectorAll(".hole");
-  }
-
-  activateHole(index) {
-    if (!this.holes[index]) {
-      throw new Error("Такого элемента в массиве нет");
+    constructor(element) {
+        if (!(element instanceof HTMLElement)) {
+            throw new Error("Ожидался DOM элемент");
+        }
+        this.element = element;
+        this.activeHole;
+        this.holes;
     }
 
-    this.deactivateHole(this.activeHole);
+    activateHole(index) {
+        if (!this.holes[index]) {
+            throw new Error("Такого элемента в массиве нет");
+        }
 
-    this.holes[index].classList.add("hole_active");
-    this.activeHole = this.holes[index];
-  }
+        this.deactivateHole(this.activeHole);
 
-  deactivateHole(activeHole) {
-    if (activeHole) {
-      activeHole.classList.remove("hole_active");
+        this.holes[index].classList.add("hole_active");
+        this.activeHole = this.holes[index];
     }
-  }
+
+    deactivateHole(activeHole) {
+        if (activeHole) {
+            activeHole.classList.remove("hole_active");
+        }   
+    }
+
+    generateField() {
+        for (let index = 0; index <= 15; index++) {
+            const hole = document.createElement("div");
+            hole.className = "hole";
+            this.element.appendChild(hole);
+        }
+
+        this.holes = this.element.querySelectorAll('.hole');
+    }
 }

@@ -5,21 +5,18 @@ let field;
 
 beforeEach(() => {
   element = document.createElement("div");
-  element.innerHTML = `
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-    `;
+  element.innerHTML = `<div class="field"></div>`;
 
   field = new Field(element);
+  field.generateField();
 });
 
 test("Проверка полей экземляра класса", () => {
-  expect(field.holes.length).toBe(3);
+  expect(field.holes.length).toBe(16);
   expect(field.element).toBe(element);
   expect(() => {
     const fieldTest = new Field(10);
-    fieldTest.activateHole(1);
+    fieldTest.activateHole(10);
   }).toThrow(Error);
 });
 
@@ -28,7 +25,7 @@ test("Проверка метода activateHole()", () => {
   expect(field.holes[1].classList.contains("hole_active")).toBe(true);
 
   expect(() => {
-    field.activateHole(4);
+    field.activateHole(17);
   }).toThrow(Error);
 });
 
