@@ -10,7 +10,8 @@
     "test": "jest",
     "serve": "live-server --open=/src/index.html",
     "lint": "eslint .",
-    "build": "webpack serve --mode production"
+    "build:serve": "webpack serve --mode development",
+    "build": "wbpack --mode production"
   },
   "author": "",
   "license": "ISC",
